@@ -6,7 +6,9 @@ public enum GameState
     Init,
     MainMenu,
     GamePlay,
-    Puased
+    Puased,
+    options,
+    GameOver
 
 }
 public class GameStateManager : MonoBehaviour
@@ -69,14 +71,25 @@ public class GameStateManager : MonoBehaviour
             case GameState.GamePlay:
 
                 Debug.Log("GameState changed to GamePlay");
+                Time.timeScale = 1f;
                 uiManager.ShowGamePlay();
-            break;
+                
+                break;
 
             case GameState.Puased:
 
                 Debug.Log("GameState changed to Paused");
-                uiManager.ShowPaused();
                 Time.timeScale = 0;
+                uiManager.ShowPaused();
+                
+                break;
+
+            case GameState.GameOver:
+                uiManager.ShowGameOver();
+                break;
+
+            case GameState.options:
+                uiManager.ShowOptions();
                 break;
 
             default:
@@ -89,6 +102,19 @@ public class GameStateManager : MonoBehaviour
     {
         SetState(GameState.GamePlay);
     }
+    public void StartMenu()
+    {
+        SetState(GameState.MainMenu);
+    }
+    public void StartOptions()
+    {
+        SetState(GameState.options);
+    }
+    public void PreviousState()
+    {
+        SetState(previousState);
+
+    }
     public void TogglePause()
     {
         if(currentState == GameState.Puased)
@@ -99,16 +125,28 @@ public class GameStateManager : MonoBehaviour
 
         }
         else if (currentState == GameState.GamePlay) 
-            {
+        {
             // pause
-            if (currentState != GameState.Puased) return;
+            if (currentState == GameState.Puased) return;
             SetState(GameState.Puased);
-            }
+        }
 
         
     }
+    public void Death()
+    {
+        if (currentState == GameState.GamePlay)
+        {
+            // resume game
+            SetState(GameState.GameOver);
 
-    
+        }
+        else return;
+
+
+    }
+
+
 
 
 

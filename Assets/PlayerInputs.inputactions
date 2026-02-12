@@ -14,18 +14,20 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                }
-            ],
-            "bindings": []
-        },
-        {
-            "name": "UI",
-            "id": "9f0c6b61-df74-4883-b89c-bcb1da2279a4",
-            "actions": [
+                },
                 {
                     "name": "Pause",
                     "type": "Button",
-                    "id": "72e5565a-0e3a-43d9-99fe-1ec7d655d196",
+                    "id": "8d1b1d3d-9cf8-478d-b2ed-fdf0e81e0550",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Death",
+                    "type": "Button",
+                    "id": "32f64bae-f4e5-4d6a-adce-fbaa4d74de70",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -35,7 +37,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "39c8981b-b83b-41ed-813b-2436d068012b",
+                    "id": "a3085f46-e7aa-4776-8e23-b27471a45e56",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
@@ -46,12 +48,23 @@
                 },
                 {
                     "name": "",
-                    "id": "3070897c-b718-4cdc-8c12-9ae23b87a27e",
+                    "id": "d4307e8a-d8c8-43a2-87c9-1a5550760dcf",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c99e5e50-37da-492f-9e33-652870a9fef8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Death",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
